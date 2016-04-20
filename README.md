@@ -18,8 +18,9 @@ To build this project do the following:
 3. Inspect **db container** to find the IP, run `docker inspect regrader_db_1 | grep IPAddress`. Save the IP, you will need it
 4. Enter the grader container, run `docker-enter regrader_regrader_1`
 5. Go to regrader folder, run `cd /var/www/regrader`.
-6. Set the IP that you get from docker inspect into DB_HOSTNAME field in .env file
-7. Execute run_grader.sh script, run `./run_grader.sh`
+6. Set the IP that you get from docker inspect into **DB_HOSTNAME** field in .env file
+7. Open **localhost**, and perform the installation
+8. Execute run_grader.sh script, run `./run_grader.sh`
 
 ## Common Error
 - If you get error **"field 'X' doesn't have a default value"**. Most likely the database is in Strict Mode. To solve this, first enter the db container, run `docker-enter regrader_db_1`. Enter the mysql server, the default command is `mysql -u root -proot`. Change the -p as your root password. Then run mysql command`SET GLOBAL sql_mode=''` and `FLUSH PRIVILEGES` on your mysql server.
