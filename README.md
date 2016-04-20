@@ -14,7 +14,7 @@ To build this project do the following:
 
 1. Open command line, clone this project with `git clone https://github.com/Delpro-Club/regrader.git`, and move to 
    project root directory, `cd regrader`
-2. Run `docker-compose up -d`
+2. Run `docker-compose up -d`, This will take 30-60 minutes. Just have a coffee to wait this.
 3. Inspect **db container** to find the IP, run `docker inspect regrader_db_1 | grep IPAddress`. Save the IP, you will need it
 4. Enter the grader container, run `docker-enter regrader_regrader_1`
 5. Go to regrader folder, run `cd /var/www/regrader`.
@@ -25,7 +25,7 @@ To build this project do the following:
 
 ## Common Error
 - If you get error **"field 'X' doesn't have a default value"**. Most likely the database is in Strict Mode. To solve this, first enter the db container, run `docker-enter regrader_db_1`. Enter the mysql server, the default command is `mysql -u root -proot`. Change the -p as your root password. Then run mysql command`SET GLOBAL sql_mode=''` and `FLUSH PRIVILEGES` on your mysql server.
-- If you find error **E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?** While run `docker-compose up -d`, just run again `docker-compose up -d` There's some glitch can be happen when you fetch package from the repo.
+- If you find error While run `docker-compose up -d`, just run again `docker-compose up -d` There's some glitch can be happen when you fetch package from the repo.
 
 ## Notes
 - Don't forget to change your DB root password. You can change the password in `docker-compose.yml` file
