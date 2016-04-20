@@ -82,6 +82,8 @@ RUN apt-get update && \
     apt-get purge -y openjdk-6-jre-headless && \
     rm -rf /var/lib/apt/lists/*
 
+COPY Site.php /var/www/regrader/application/controllers/Site.php
+
 VOLUME ["/var/www/html/var/log", "/var/log/nginx", "/var/log/fpm"]
 EXPOSE 80
 
