@@ -20,7 +20,8 @@ To build this project do the following:
 5. Go to regrader folder, run `cd /var/www/regrader`.
 6. Set the IP that you get from docker inspect into **DB_HOSTNAME** field in .env file
 7. Open **localhost**, and perform the installation
-8. Execute run_grader.sh script, run `./run_grader.sh`
+8. Configure & Make moe. `cd moe`, and then run `./configure && make`
+9. Execute run_grader.sh script, `cd ..` and then run  `./run_grader.sh`
 
 ## Common Error
 - If you get error **"field 'X' doesn't have a default value"**. Most likely the database is in Strict Mode. To solve this, first enter the db container, run `docker-enter regrader_db_1`. Enter the mysql server, the default command is `mysql -u root -proot`. Change the -p as your root password. Then run mysql command`SET GLOBAL sql_mode=''` and `FLUSH PRIVILEGES` on your mysql server.
@@ -29,6 +30,7 @@ To build this project do the following:
 - Don't forget to change your DB root password. You can change the password in `docker-compose.yml` file
 - Don't forget to change your admin password in Regrader site, the default is username : admin, password : admin
 - Building the image will take a huge of bandwidth. I'm suggest to get a wifi connection
+- For the Java Compiler you must manually set the path into **/usr/lib/jvm/java-7-openjdk-amd64/bin/javac**
 
 Configuring the System
 ----------------------
