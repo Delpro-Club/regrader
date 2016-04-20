@@ -15,10 +15,10 @@ To build this project do the following:
 1. Open command line, clone this project with `git clone https://github.com/Delpro-Club/regrader.git`, and move to 
    project root directory, `cd regrader`
 2. Run `docker-compose up -d`
-3. Inspect **db container** to find the IP, run `docker inspect regrader_db_1 | grep IPAddress`
-4. Set the IP that you get into **DB_HOSTNAME** field in .env file
-5. enter the grader container, run `docker-enter regrader_regrader_1`
-6. go to regrader folder, run `cd /var/www/regrader`.
+3. Inspect **db container** to find the IP, run `docker inspect regrader_db_1 | grep IPAddress`. Save the IP, you will need it
+4. Enter the grader container, run `docker-enter regrader_regrader_1`
+5. Go to regrader folder, run `cd /var/www/regrader`.
+6. Set the IP that you get from docker inspect into DB_HOSTNAME field in .env file
 7. Execute run_grader.sh script, run `./run_grader.sh`
 
 ## Common Error
