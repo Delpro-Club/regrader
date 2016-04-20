@@ -25,6 +25,7 @@ To build this project do the following:
 
 ## Common Error
 - If you get error **"field 'X' doesn't have a default value"**. Most likely the database is in Strict Mode. To solve this, first enter the db container, run `docker-enter regrader_db_1`. Enter the mysql server, the default command is `mysql -u root -proot`. Change the -p as your root password. Then run mysql command`SET GLOBAL sql_mode=''` and `FLUSH PRIVILEGES` on your mysql server.
+- If you find error **E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?** While run `docker-compose up -d`, just run again `docker-compose up -d` There's some glitch can be happen when you fetch package from the repo.
 
 ## Notes
 - Don't forget to change your DB root password. You can change the password in `docker-compose.yml` file
