@@ -22,6 +22,7 @@ RUN apt-key add /tmp/nginx_signing.key && \
     curl \
     unzip \
     tar \
+    vim \
     cron \
     procps \
     supervisor \
@@ -64,12 +65,23 @@ RUN tar zxvf regrader-v2.2.1.tar.gz -C /var/www/regrader && \
 COPY .env /var/www/regrader/.env
 COPY regrader.ini /etc/php5/cli/conf.d/regrader.ini
 COPY regrader.ini /etc/php5/fpm/conf.d/regrader.ini
-
-RUN rm -f /var/www/regrader/application/controllers/Site.php
 COPY Site.php /var/www/regrader/application/controllers/Site.php
 
 RUN chown -R www-data /var/www/regrader
-RUN apt-get install -y php5-mysqlnd
+RUN apt-get install -y  php5-mysqlnd
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends g++ && \
+    rm -rf /var/lib/apt/lists/
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends fp-compiler && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openjdk-7-jdk && \
+    apt-get purge -y openjdk-6-jre-headless && \
+    rm -rf /var/lib/apt/lists/*
 
 VOLUME ["/var/www/html/var/log", "/var/log/nginx", "/var/log/fpm"]
 EXPOSE 80

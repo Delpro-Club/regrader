@@ -1,18 +1,16 @@
-regrader:
-  build: .
-  ports:
-    - "80:80"
-  links:
-    - db
-  restart: always
-
 db:
     image: mysql:5.6.27
     ports:
         - "3306:3306"
     environment:
         - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=regrader
-        - MYSQL_USER=root
-        - MYSQL_PASSWORD=root
+        - MYSQL_DATABASE=regrader_db
+        - MYSQL_USER=regrader_user
+        - MYSQL_PASSWORD=regrader_pass
+    restart: always
+
+regrader:
+    build: .
+    ports:
+        - "80:80"
     restart: always
