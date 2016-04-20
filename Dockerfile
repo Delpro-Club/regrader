@@ -65,7 +65,6 @@ RUN tar zxvf regrader-v2.2.1.tar.gz -C /var/www/regrader && \
 COPY .env /var/www/regrader/.env
 COPY regrader.ini /etc/php5/cli/conf.d/regrader.ini
 COPY regrader.ini /etc/php5/fpm/conf.d/regrader.ini
-COPY Site.php /var/www/regrader/application/controllers/Site.php
 
 RUN chown -R www-data /var/www/regrader
 RUN apt-get install -y  php5-mysqlnd
