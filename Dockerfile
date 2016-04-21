@@ -20,8 +20,6 @@ RUN apt-key add /tmp/nginx_signing.key && \
     apt-get install -y \
     wget \
     curl \
-    unzip \
-    tar \
     vim \
     cron \
     procps \
@@ -71,13 +69,7 @@ RUN apt-get install -y  php5-mysqlnd
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends g++ && \
-    rm -rf /var/lib/apt/lists/
-
-RUN apt-get update && \
     apt-get install -y --no-install-recommends fp-compiler && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && \
     apt-get install -y --no-install-recommends openjdk-7-jdk && \
     apt-get purge -y openjdk-6-jre-headless && \
     rm -rf /var/lib/apt/lists/*
