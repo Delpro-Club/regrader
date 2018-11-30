@@ -1,5 +1,7 @@
 # regrader
-An ICPC-style programming contest system that works.
+Source: https://github.com/fushar/regrader
+
+An ICPC-style programming contest system that works. Tweaked to use Docker for easy setup.
 
 ## Requirement
 
